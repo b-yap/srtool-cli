@@ -20,6 +20,10 @@ pub struct Opts {
 	#[clap(short, long, default_value = "docker.io/paritytech/srtool", global = true)]
 	pub image: String,
 
+	/// Choose an alternative image tag. By default, srtool-cli will choose the latest one.
+	#[clap(long, global = true)]
+	pub image_tag: Option<String>,
+
 	/// This option is DEPRECATED and has no effect
 	#[clap(short, long)]
 	pub json: bool,

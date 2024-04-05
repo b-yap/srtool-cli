@@ -41,7 +41,7 @@ fn main() -> Result<(), SrtoolError> {
 	debug!("Checking what is the latest available tag...");
 	const ONE_HOUR: u64 = 60 * 60;
 
-	let tag = get_image_tag(Some(ONE_HOUR)).expect("Issue getting the image tag");
+	let tag = opts.image_tag.unwrap_or_else(|| get_image_tag(Some(ONE_HOUR)).expect("Issue getting the image tag"));
 
 	info!("Using {image}:{tag}");
 
